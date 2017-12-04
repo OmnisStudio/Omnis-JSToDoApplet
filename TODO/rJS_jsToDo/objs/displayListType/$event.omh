@@ -1,0 +1,10 @@
+On evClick
+	;  use the smartlist property of iTaskList to determine which records to show
+	;
+	;  Do iTaskList.$unfilter()
+	;  If iViewList.$line>1
+	;  Do iTaskList.$filter(iTaskList.C10=iViewList.C1)
+	;  End If
+	;
+	;  Calculate iServerDisplayTaskList as iTaskList
+	Do method filterDisplay

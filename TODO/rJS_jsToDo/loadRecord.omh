@@ -1,0 +1,10 @@
+Calculate iTaskName as iServerDisplayTaskList.[iServerDisplayTaskList.$line].Item
+Do iCatList.$search(iCatList.CatID=iServerDisplayTaskList.[iServerDisplayTaskList.$line].CatID)
+Do iCatList.$first(kTrue)
+Calculate iTaskDesc as iServerDisplayTaskList.[iServerDisplayTaskList.$line].Notes
+Calculate iTargetCompleteDate as iServerDisplayTaskList.[iServerDisplayTaskList.$line].EstDate
+If (iTaskList.[iTaskList.$line].Status=kTaskOverdue)|(iTargetCompleteDate<#D)
+	Calculate iTaskStatus as kTaskOverdue
+Else
+	Calculate iTaskStatus as iServerDisplayTaskList.[iServerDisplayTaskList.$line].Status
+End If

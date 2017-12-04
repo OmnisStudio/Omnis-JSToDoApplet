@@ -1,0 +1,9 @@
+On evTabSelected
+	Do $cinst.$objs.pagePane.$currentpage.$assign(pTabNumber)
+	Do $cinst.$objs.displayListType.$visible.$assign(pTabNumber=1)
+	
+	If pTabNumber=2
+		Do method loadRecord
+	Else If pTabNumber=1
+		Do method handleBtns (kCancelBtn)
+	End If

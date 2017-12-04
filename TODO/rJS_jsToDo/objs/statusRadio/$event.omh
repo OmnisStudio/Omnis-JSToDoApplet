@@ -1,0 +1,5 @@
+On evClick
+	If iTaskStatus=1     ;; complete
+		Calculate iTaskRow.Status as kTaskComplete
+		Calculate iTaskRow.CompletionDate as #D     ;; mark as completed today
+	End If

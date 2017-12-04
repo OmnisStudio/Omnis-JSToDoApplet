@@ -1,0 +1,17 @@
+;  return all the records from the table
+
+Do $cinst.$createStatement()
+
+Calculate lStr as $cinst.$selectnames(pList)
+
+Begin statement
+Sta: {Select [lStr] from Category}
+
+Do $cinst.$executeSQLScript Returns lStatus
+If lStatus
+	Do $cinst.$fetchAll(pList)
+Else
+	Calculate pErrorMsg as con("Error getting records: ",chr(13),$cinst.$getLastError)
+End If
+
+Quit method lStatus

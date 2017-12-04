@@ -1,0 +1,32 @@
+Do iViewList.$define(iView)
+Do iViewList.$add("All")
+Do iViewList.$add("Active")
+Do iViewList.$add("Completed")
+Do iViewList.$add("Overdue")
+Do iViewList.$line.$assign(1)
+
+Do iStatusList.$define(iStatus)
+Do iStatusList.$add("Active")
+Do iStatusList.$add("Completed")
+Do iStatusList.$add("Overdue")
+Do iStatusList.$line.$assign(1)
+
+Do iCatList.$sessionobject.$assign(iSQLObjRef) Returns #F
+Do iSQLObjRef.$getCats(iCatList,lError) Returns lStatus
+If not(lStatus)
+	Do $cinst.$showmessage(lError)
+Else If iCatList.$linecount=0
+	;  add default cats
+	Do lRow.$sessionobject.$assign(iSQLObjRef)
+	Calculate lRow.Category as "Business"
+	Calculate lRow.CatID as 1
+	Do lRow.$insert()
+	Calculate lRow.Category as "Home"
+	Calculate lRow.CatID as 2
+	Do lRow.$insert()
+	Do iSQLObjRef.$getCats(iCatList,lError) Returns lStatus
+End If
+
+Do iCatList.$line.$assign(1)
+
+Do method buildTaskList

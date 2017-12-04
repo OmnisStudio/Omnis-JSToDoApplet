@@ -1,0 +1,16 @@
+If iNewTask
+	Calculate iTaskRow.ID as iTaskList.$cols.ID.$maximum()+1
+Else
+	Calculate iTaskRow.ID as iServerDisplayTaskList.[iServerDisplayTaskList.$line].ID
+End If
+
+Calculate iTaskRow.Item as iTaskName
+Calculate iTaskRow.CatID as iCatList.CatID
+Calculate iTaskRow.Notes as iTaskDesc
+If iTargetCompleteDate<#D
+	Calculate iTaskRow.Status as kTaskOverdue
+Else
+	Calculate iTaskRow.Status as iTaskStatus
+End If
+Calculate iTaskRow.AllocatedDate as #D
+Calculate iTaskRow.EstDate as iTargetCompleteDate

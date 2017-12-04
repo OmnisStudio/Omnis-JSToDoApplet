@@ -1,0 +1,2 @@
+Calculate iTargetCompleteDate as pDate
+Do $cinst.$clientcommand("subformset_remove",row(iSFSName))

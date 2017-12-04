@@ -1,0 +1,17 @@
+;  inserts a new record in the table
+
+Do $cinst.$createStatement()
+
+Calculate lStr as $cinst.$insertnames(pRow)
+
+Begin statement
+Sta: {INSERT INTO ToDo [lStr]}
+
+Do $cinst.$executeSQLScript Returns lStatus
+
+If lStatus
+Else
+	Calculate pErrorMsg as con("Error inserting record: ",chr(13),$cinst.$getLastError)
+End If
+
+Quit method lStatus

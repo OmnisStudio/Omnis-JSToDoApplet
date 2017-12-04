@@ -1,0 +1,4 @@
+On evClick
+	Do method handleBtns (kCancelBtn)
+	
+	Do $cinst.$objs.tabStrip.$currenttab.$assign(1)

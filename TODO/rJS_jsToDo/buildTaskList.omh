@@ -1,0 +1,28 @@
+Do iTaskList.$definefromsqlclass('sToDo')
+Do iTaskList.$sessionobject.$assign(iSQLObjRef) Returns #F
+
+Do iSQLObjRef.$getTasks(iTaskList,lError) Returns lStatus
+If iTaskList.$linecount=0
+	Do $cinst.$objs.tabStrip.$enabled.$assign(kFalse)
+Else
+	Do $cinst.$objs.editTaskBtn.$enabled.$assign(kTrue)
+End If
+
+If not(lStatus)
+	Do $cinst.$showmessage(lError)
+Else
+	Do iTaskList.$cols.$add(iStatus)
+	Calculate lTotal as iTaskList.$linecount
+	For lNum from 1 to lTotal step 1
+		If (iTaskList.[lNum].Status<2)&(#D>iTaskList.[lNum].EstDate)
+			Do iTaskList.[lNum].$assigncols(,,,,kTaskOverdue)
+		End If
+	End For
+	Do iTaskList.$sendall($ref.$assigncols(,,,,,,,,,pick(iTaskList.[iTaskList.$line].C5,"Active","Completed","Overdue")))
+	Do iTaskList.$line.$assign(1)
+End If
+
+Do iTaskList.$smartlist.$assign(kTrue)
+
+;  st/js/552
+Calculate iServerDisplayTaskList as iTaskList

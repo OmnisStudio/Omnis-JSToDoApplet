@@ -1,0 +1,21 @@
+On evClick
+	Do method populateRow
+	If iNewTask
+		Do iSQLObjRef.$addTask(iTaskRow,lErrStr) Returns lStatus
+	Else
+		Do iSQLObjRef.$updateTask(iTaskRow,iTaskRow.ID,lErrStr) Returns lStatus
+	End If
+	
+	If lStatus
+		Do method buildTaskList     ;; re-build list
+		Do method filterDisplay
+		
+		Calculate iNewTask as kFalse     ;; reset
+		Do method handleBtns (kSaveBtn)
+		
+		If iMobile
+			Do $cinst.$showmessage("Task saved")
+		End If
+	Else
+		Do $cinst.$showmessage(lErrStr)
+	End If

@@ -1,0 +1,12 @@
+On evBefore
+	If len(iTargetCompleteDate)
+		Calculate lDate as con(kDq,iTargetCompleteDate,kDq)
+	Else
+		Calculate lDate as con(kDq,#D,kDq)
+	End If
+	
+	;  add a modal dialog "rJS_jsDateHelp" using subform sets - pass current date as a quoted param
+	Do $cinst.$clientcommand("subformset_add",row(iSFSName,'',kSFSflagResize+kSFSflagCloseButton,'',lSFSFormList))
+	Do $cinst.$clientcommand("subformset_formadd",row(iSFSName,1,"rJS_jsDateHelp",lDate,"Select Date",kSFScenter,kSFScenter,300,200,1))
+	
+On evAfter

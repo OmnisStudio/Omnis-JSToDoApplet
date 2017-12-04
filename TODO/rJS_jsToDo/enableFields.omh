@@ -1,0 +1,14 @@
+If pMode=kNewBtn|pMode=kEditBtn
+	Calculate lEnable as kTrue
+Else
+	Calculate lEnable as kFalse
+End If
+
+If pMode=kEditBtn
+	Do $cinst.$objs.pagePane.$objs.taskDesc.$enabled.$assign(lEnable)
+	Do $cinst.$objs.pagePane.$objs.statusRadio.$enabled.$assign(lEnable)
+Else
+	Do $cinst.$objs.pagePane.$objs.targetCompletionDate.$enabled.$assign(lEnable)
+	Do $cinst.$objs.pagePane.$objs.taskDesc.$enabled.$assign(lEnable)
+	Do $cinst.$objs.pagePane.$objs.statusRadio.$enabled.$assign(lEnable)
+End If

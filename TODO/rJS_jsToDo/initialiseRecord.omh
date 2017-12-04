@@ -1,0 +1,5 @@
+Calculate iTaskName as con("New Task_",iTaskList.$linecount+1)
+Do iCatList.$line.$assign(1)
+Calculate iTaskDesc as "Enter description of task"
+Calculate iTargetCompleteDate as #D
+Calculate iTaskStatus as 0

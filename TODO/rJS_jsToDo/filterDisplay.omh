@@ -1,0 +1,9 @@
+;  use the smartlist property of iTaskList to determine which records to show
+
+Do iTaskList.$unfilter()
+If iViewList.$line>1
+	Do iTaskList.$filter(iTaskList.C10=iViewList.C1)
+End If
+
+Do iTaskList.$line.$assign(1)
+Calculate iServerDisplayTaskList as iTaskList

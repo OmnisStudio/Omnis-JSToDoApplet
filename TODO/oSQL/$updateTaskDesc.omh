@@ -1,0 +1,16 @@
+;  update record in the table
+
+Do $cinst.$createStatement()
+
+Breakpoint
+Begin statement
+Sta: {Update ToDo SET Notes = @[pDesc] WHERE ID = @[pID]}
+
+Do $cinst.$executeSQLScript Returns lStatus
+
+If lStatus
+Else
+	Calculate pErrorMsg as con("Error updating record: ",chr(13),$cinst.$getLastError)
+End If
+
+Quit method lStatus

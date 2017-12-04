@@ -1,0 +1,19 @@
+Begin text block
+Text: {ToDo is an Omnis applet developed using the Javascript controls.} (Carriage return)
+Text: (Carriage return)
+Text: {Function:} (Carriage return)
+Text: {The applet allows you to create a list of tasks that need attention.} (Carriage return)
+Text: (Carriage return)
+Text: {Usage:} (Carriage return)
+Text: {Select the New Task button to begin data entry.  Once you have saved a task, the list displays a summary of the data.} (Carriage return)
+Text: {You can then select a task and either double-click or hit the Details tab to find out / edit the data.}
+Text: {The droplist at the top of the form can be used to display task by status.} (Carriage return)
+Text: (Carriage return)
+Text: {Components:} (Carriage return)
+Text: {The task data is stored in a SQLite table called ToDo.  The schema class sToDo is an Omnis representation of the table definition.} (Carriage return)
+Text: {The applet uses custom methods in the oSQL object class.} (Carriage return,Linefeed)
+Text: (Carriage return)
+Text: {Extending:} (Carriage return)
+Text: {The applet could be extended by assigning tasks to different people or by allowing new categories to be created.} (Carriage return)
+Get text block lAboutText
+Quit method lAboutText

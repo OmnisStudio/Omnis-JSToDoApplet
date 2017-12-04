@@ -1,0 +1,2 @@
+On evDateChange,evDateDClick
+	Do $cwind.$closeDialog(iDate)

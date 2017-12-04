@@ -1,0 +1,6 @@
+On evClick
+	Do $cinst.$objs.tabStrip.$currenttab.$assign(2)
+	Do method handleBtns (kEditBtn)
+	
+	Calculate iNewTask as kFalse
+	Do method loadRecord

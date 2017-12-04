@@ -1,0 +1,11 @@
+Do $cinst.$objs.pagePane.$objs.taskList.$hideselection.$assign(not(pEnable))
+Do $cinst.$objs.pagePane.$objs.taskList.$enabled.$assign(pEnable)
+
+Do $cinst.$objs.aboutBtn.$enabled.$assign(pEnable)
+
+Do $cinst.$objs.pagePane.$objs.taskList.$enabled.$assign(pEnable)
+Do $cinst.$objs.tabStrip.$enabled.$assign(pEnable)
+
+If not(iNewTask)     ;; do not change the button state if in the middle of a new task
+	Do $cinst.$objs.newTaskBtn.$enabled.$assign(pEnable)
+End If

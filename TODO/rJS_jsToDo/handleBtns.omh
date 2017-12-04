@@ -1,0 +1,19 @@
+Switch pMode
+	Case kNewBtn
+		Do $cinst.$objs.newTaskBtn.$enabled.$assign(kFalse)
+		Do $cinst.$objs.editTaskBtn.$enabled.$assign(kFalse)
+		Do $cinst.$objs.cancelBtn.$enabled.$assign(kTrue)
+		Do $cinst.$objs.saveBtn.$enabled.$assign(kTrue)
+	Case kEditBtn
+		Do $cinst.$objs.editTaskBtn.$enabled.$assign(kFalse)
+		Do $cinst.$objs.cancelBtn.$enabled.$assign(kTrue)
+		Do $cinst.$objs.saveBtn.$enabled.$assign(kTrue)
+		Do $cinst.$objs.newTaskBtn.$enabled.$assign(kFalse)
+	Case kCancelBtn,kSaveBtn
+		Do $cinst.$objs.editTaskBtn.$enabled.$assign(kTrue)
+		Do $cinst.$objs.cancelBtn.$enabled.$assign(kFalse)
+		Do $cinst.$objs.saveBtn.$enabled.$assign(kFalse)
+		Do $cinst.$objs.newTaskBtn.$enabled.$assign(kTrue)
+End Switch
+
+Do method enableFields (pMode)

@@ -1,0 +1,11 @@
+On evClick
+	If iTaskList.$linecount=0
+		Do $cinst.$objs.tabStrip.$enabled.$assign(kTrue)
+	End If
+	Calculate iNewTask as kTrue
+	Do method initialiseRecord
+	Do $cinst.$objs.tabStrip.$currenttab.$assign(2)
+	Do method handleBtns (kNewBtn)
+	Do $cinst.$setcurfield($cinst.$objs.pagePane.$objs.taskName)
+	
+	Calculate iTargetCompleteDate as #D

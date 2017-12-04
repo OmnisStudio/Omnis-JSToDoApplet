@@ -1,0 +1,25 @@
+On evClick
+	Do $cinst.$objs.editTaskBtn.$enabled.$assign(kTrue)
+	
+On evDoubleClick
+	Calculate iNewTask as kFalse
+	Calculate iTaskName as iServerDisplayTaskList.[pVertCell].C2
+	
+	Do $cinst.$objs.tabStrip.$currenttab.$assign(2)
+	Do $cinst.$setcurfield($cinst.$objs.pagePane.$objs.taskName)
+	Do method loadRecord
+	Do method handleBtns (kEditBtn)
+	Do method enableFields (kEditBtn)
+	
+On evCellChanged
+	
+On evHeaderClick
+	Calculate iSortOrder as not(iSortOrder)
+	If pHorzCell=2
+		Do iTaskList.$sort(iTaskList.C10,iSortOrder)
+	Else
+		Do iTaskList.$sort(iTaskList.C2,iSortOrder)
+	End If
+	Calculate iServerDisplayTaskList as iTaskList
+	
+On evHeadedListDisplayOrderChanged

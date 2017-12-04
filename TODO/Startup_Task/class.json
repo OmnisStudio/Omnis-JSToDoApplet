@@ -1,0 +1,40 @@
+{
+	"classtype": "kTask",
+	"internalversion": 5,
+	"tvardefs": [
+		{
+			"name": "tSQLObj",
+			"order": 1,
+			"type": "kObject",
+			"subtype": "oSQL",
+			"sublen": 0
+		}
+	],
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "iHost",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2017-02-01 16:30:05",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": false,
+		"issupercomponent": false,
+		"moddate": "2017-12-04 11:07:36",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": "1"
+	}
+}
